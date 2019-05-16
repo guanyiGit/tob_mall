@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TBrowseDao">
+    <resultMap id="BrowseVoResultMap" type="com.pojo.BrowseVo">
+        <id property="createTime" column="br_create_time"></id>
+        <result property="updateTime" column="br_update_time"></result>
+        <result property="totalNum" column="total_num"></result>
+        <result property="viewNum" column="view_Num"></result>
+        <association property="goodsDO" javaType="com.entities.GoodsDO">
+            <id property="createTime" column="gs_create_time"></id>
+            <result property="updateTime" column="gs_update_time"></result>
+        </association>
+        <collection property="mediaRefVOS" ofType="com.pojo.MediaRefVO">
+            <id property="createDate" column="gsm_create_date"></id>
+            <association property="mediaInfoDO" javaType="com.entities.MediaInfoDO">
+                <id property="thumbnailUrl" column="thumbnail_url"></id>
+            </association>
+        </collection>
+        <collection property="skuDOList" ofType="com.entities.SkuDO">
+            <id property="createTime" column="sku_create_time"></id>
+            <result property="updateTime" column="sku_update_time"></result>
+        </collection>
+    </resultMap>
+
+    <!--添加游览历史-->
+    <insert id="addHistory">
+        INSERT INTO t_browse
+            (goods_id, sku_id, user_id, create_time, update_time)
+        VALUES
+            (#{history.goodsId}, #{history.skuId}, #{history.userId}, #{history.createTime}, #{history.updateTime})
+    </insert>
+
+    <!--查看我的浏览历史 商品-->
+    <select id="historys" resultMap="BrowseVoResultMap">
+        SELECT
+            br.*, br.create_time br_create_time,br.update_time br_update_time,
+            gs.*, gs.create_time gs_create_time,gs.update_time gs_update_time,
+            sku.*, sku.create_time sku_create_time,sku.update_time sku_update_time,
+            gsm.*, gsm.create_date gsm_create_date,
+            od.total_num,brc.view_Num
+        FROM (t_browse br,goods gs,sku)
+        LEFT JOIN (
+            SELECT ordd.goods_id,count(ordd.total_num) total_num
+            FROM t_order_detail ordd,t_order ord
+            WHERE ordd.order_id = ord.id
+            AND ord.`status` != 0
+            GROUP BY ordd.goods_id ) od ON od.goods_id = gs.goods_id
+        LEFT JOIN (
+            SELECT brhis.goods_id, COUNT(brhis.goods_id) view_Num FROM t_browse brhis GROUP BY brhis.goods_id
+        ) brc ON brc.goods_id = gs.goods_id
+        LEFT JOIN (
+            SELECT
+            mr.create_date m_create_date,mr.id m_id,mr.is_video m_is_video,mr.media_id m_media_id,mr.ref_id m_ref_id,mr.type m_type,mr.update_date m_update_date,
+
+            mi.create_date,mi.id,mi.image_ext,mi.`name`,mi.size,mi.url,
+            mi.thumbnail_size,mi.thumbnail_url,mi.title,mi.update_date
+            FROM t_media_ref mr,t_media_info mi WHERE mi.id = mr.media_id
+        ) gsm ON gsm.m_ref_id = gs.goods_id
+        WHERE br.goods_id = gs.goods_id
+        AND gs.goods_id = sku.goods_id
+        AND br.user_id = #{userId}
+        GROUP BY gs.goods_id
+        ORDER BY br.create_time DESC, sku.price ASC
+    </select>
+
+</mapper>

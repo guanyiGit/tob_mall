@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.GoodsDao">
+
+
+	<sql id="base">
+	SELECT goods.goods_num goodsNum,goods.goods_name goodsName,sup.sup_name supName,sub.sub_name subName,org.org_name orgName
+	FROM goods
+	LEFT JOIN supplier sup
+	ON goods.sup_id=sup.sup_id
+	LEFT JOIN t_subject sub
+	ON goods.sub_id=sub.id
+	LEFT JOIN t_org_info org
+	ON goods.org_id=org.id
+	</sql>
+
+
+	<select id="get" resultType="com.entities.GoodsDO">
+		select `goods_id`,`goods_name`,`status`,`org_id`,`cid`,`brand_id`,`listting_time`,`delisting_time`,`goods_num`,`remark`,`description`,`operator`,`origin`,`packing_list`,`weight`,`sup_id`,`sub_id`,`create_time`,`update_time` from goods where goods_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.entities.GoodsDO">
+		<include refid="base"></include>
+        <where>
+				<if test="string !=null and string !=''">
+					AND  (goods.goods_name like "%"#{string}"%" OR goods.goods_num = #{string})
+				</if>
+		  	    <if test="status != null and status != ''"> and goods.status = #{status} </if>
+			    <if test="orgId != null and orgId != ''"> and goods.org_id = #{orgId} </if>
+		</where>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+ 	<select id="count" resultType="int">
+		select count(*) from goods
+		 <where>
+			 <if test="string !=null and string !=''">
+				 AND  (goods.goods_name like "%"#{string}"%" OR goods.goods_num = #{string})
+			 </if>
+			 <if test="status != null and status != ''"> and goods.status = #{status}</if>
+			 <if test="orgId != null and orgId != ''"> and goods.org_id = #{orgId} </if>
+		 </where>
+	</select>
+
+	<insert id="save" parameterType="com.entities.GoodsDO" useGeneratedKeys="true" keyProperty="goodsId">
+		insert into goods
+		(
+			`goods_name`, 
+			`status`, 
+			`org_id`, 
+			`cid`, 
+			`brand_id`, 
+			`listting_time`, 
+			`delisting_time`, 
+			`goods_num`, 
+			`remark`, 
+			`description`, 
+			`operator`, 
+			`origin`, 
+			`packing_list`, 
+			`weight`, 
+			`sup_id`,
+			`sub_id`,
+			`create_time`, 
+			`update_time`
+		)
+		values
+		(
+			#{goodsName}, 
+			#{status}, 
+			#{orgId}, 
+			#{cid}, 
+			#{brandId}, 
+			#{listtingTime}, 
+			#{delistingTime}, 
+			#{goodsNum}, 
+			#{remark}, 
+			#{description}, 
+			#{operator}, 
+			#{origin}, 
+			#{packingList}, 
+			#{weight}, 
+			#{supId},
+			#{subId},
+			#{createTime}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.entities.GoodsDO">
+		update goods 
+		<set>
+			<if test="goodsName != null">`goods_name` = #{goodsName}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="orgId != null">`org_id` = #{orgId}, </if>
+			<if test="cid != null">`cid` = #{cid}, </if>
+			<if test="brandId != null">`brand_id` = #{brandId}, </if>
+			<if test="listtingTime != null">`listting_time` = #{listtingTime}, </if>
+			<if test="delistingTime != null">`delisting_time` = #{delistingTime}, </if>
+			<if test="goodsNum != null">`goods_num` = #{goodsNum}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="description != null">`description` = #{description}, </if>
+			<if test="operator != null">`operator` = #{operator}, </if>
+			<if test="origin != null">`origin` = #{origin}, </if>
+			<if test="packingList != null">`packing_list` = #{packingList}, </if>
+			<if test="weight != null">`weight` = #{weight}, </if>
+			<if test="supId != null">`sup_id` = #{supId}, </if>
+			<if test="subId != null">`sub_id` = #{subId}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where goods_id = #{goodsId}
+	</update>
+	
+	<delete id="remove">
+		delete from goods where goods_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from goods where goods_id in 
+		<foreach item="goodsId" collection="array" open="(" separator="," close=")">
+			#{goodsId}
+		</foreach>
+	</delete>
+
+</mapper>

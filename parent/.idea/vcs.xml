@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../generator" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../tob-budget" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../tob-goods" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../tob-hystrix-dashboard" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../tob-mall" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../tob-shiro" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../tob-shopping-cart" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../tob-supplier" vcs="svn" />
+  </component>
+</project>

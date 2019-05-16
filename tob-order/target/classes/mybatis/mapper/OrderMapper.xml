@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ordermanagement.dao.OrderDao">
+
+	<select id="get" resultType="com.entities.OrderDO">
+		select `id`,`order_no`,`create_by`,`org_id`,`status`,`money`,`approval_opinion`,`audit_opinion`,`parent_id`,`create_time`,`update_time` from t_order where id = #{value}
+	</select>
+
+	<select id="getIdList" parameterType="map" resultType="java.lang.Long">
+		SELECT
+			o.id
+		FROM
+			t_order o
+		<where>
+			<if test="supplierId != null">and o.supplier_id = #{supplierId}</if>
+			<if test="status != null">
+				<choose>
+					<when test="status==6">
+						and o.status in(6,7,8,9)
+					</when>
+					<otherwise>
+						and o.status = #{status}
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="list" resultType="com.ordermanagement.vo.OrderDetailVO">
+		SELECT
+			o.status oStatus,
+			o.refuse,
+			u.name,
+			org.org_name,
+			detail.id,
+			detail.order_no,
+			detail.order_id,
+			detail.sku_id,
+			detail.goods_id,
+			detail.price,
+			detail.subjects,
+			detail.org_id,
+			detail.remark,
+			detail.total_num,
+			detail.STATUS,
+			detail.create_time,
+			detail.update_time
+		FROM
+			t_order_detail  detail
+		left join t_order o on o.id = detail.order_id
+		left join t_user_info u on u.id = o.create_by
+		left join t_org_info org on org.id = o.org_id
+		<where>
+			<if test="idList != null and idList.size > 0">
+				detail.order_id IN
+				<foreach collection="idList" index="index" item="item" open="(" separator="," close=")">
+					#{item}
+				</foreach>
+			</if>
+		</where>
+        <!--<choose>-->
+            <!--<when test="sort != null and sort.trim() != ''">-->
+                <!--order by ${sort} ${order}-->
+            <!--</when>-->
+			<!--<otherwise>-->
+                <!--order by id desc-->
+			<!--</otherwise>-->
+        <!--</choose>-->
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="getAttrValue" parameterType="map" resultType="java.lang.String">
+		select goods.goods_name attr_value from goods
+		where goods.goods_id = #{goodsId}
+
+		union
+		select av.attr_value from sku_value_ref svr
+		left join attr_value av on av.av_id = svr.av_id
+		where svr.sku_id = #{skuId}
+
+		union
+		select av.attr_value from goods_value_ref gvr
+		left join attr_value av on av.av_id = gvr.av_id
+		where gvr.goods_id = #{goodsId}
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from t_order
+		 <where>
+			 <if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="orderNo != null and orderNo != ''"> and order_no = #{orderNo} </if>
+			<if test="createBy != null and createBy != ''"> and create_by = #{createBy} </if>
+			<if test="orgId != null and orgId != ''"> and org_id = #{orgId} </if>
+			<if test="supplierId != null and supplierId != ''"> and supplier_id = #{supplierId} </if>
+			<if test="status != null and status != ''">
+				<choose>
+					<when test="status==6">
+						and status in(6,7,8,9)
+					</when>
+					<otherwise>
+						and status = #{status}
+					</otherwise>
+				</choose>
+			</if>
+			<if test="money != null and money != ''"> and money = #{money} </if>
+			<if test="approvalOpinion != null and approvalOpinion != ''"> and approval_opinion = #{approvalOpinion} </if>
+			<if test="auditOpinion != null and auditOpinion != ''"> and audit_opinion = #{auditOpinion} </if>
+			<if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+			<if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+			<if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.entities.OrderDO">
+		insert into t_order
+		(
+			`id`, 
+			`order_no`, 
+			`create_by`, 
+			`org_id`, 
+			`status`, 
+			`money`, 
+			`approval_opinion`, 
+			`audit_opinion`, 
+			`parent_id`, 
+			`create_time`, 
+			`update_time`
+		)
+		values
+		(
+			#{id}, 
+			#{orderNo}, 
+			#{createBy}, 
+			#{orgId}, 
+			#{status}, 
+			#{money}, 
+			#{approvalOpinion}, 
+			#{auditOpinion}, 
+			#{parentId}, 
+			#{createTime}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.entities.OrderDO">
+		update t_order 
+		<set>
+			<if test="orderNo != null">`order_no` = #{orderNo}, </if>
+			<if test="createBy != null">`create_by` = #{createBy}, </if>
+			<if test="orgId != null">`org_id` = #{orgId}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="money != null">`money` = #{money}, </if>
+			<if test="approvalOpinion != null">`approval_opinion` = #{approvalOpinion}, </if>
+			<if test="auditOpinion != null">`audit_opinion` = #{auditOpinion}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from t_order where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from t_order where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+	<!--得到订单集合总数量-->
+	<select id="getOrderListCount" resultType="int" parameterType="map">
+		select count(0) from t_order
+			where 1=1
+			<if test="input!=null and input!=''">
+				and order_no like"%"#{input}"%"
+			</if>
+			<if test="supplier_id!=null and supplier_id!=''">
+				and supplier_id=#{supplier_id}
+			</if>
+			<if test="status!=null and status!=''">
+				and status=#{status}
+			</if>
+	</select>
+	<!--得到订单集合-->
+	<select id="getOrderList" resultType="map" parameterType="map">
+		select o.id,o.create_time,o.money,u.name,o.order_no,org.org_name from t_order o
+		left join t_user_info u on u.id = o.create_by
+		left join t_org_info org on org.id = o.org_id
+			where 1=1
+			<if test="input!=null and input!=''">
+				and o.order_no like"%"#{input}"%"
+			</if>
+			<if test="supplier_id!=null and supplier_id!=''">
+				and o.supplier_id=#{supplier_id}
+			</if>
+			<if test="status!=null and status!=''">
+				and o.status=#{status}
+			</if>
+			<if test="start!=null and size!=null">
+				limit #{start},#{size}
+			</if>
+	</select>
+</mapper>

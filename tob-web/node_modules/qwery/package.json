@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      "qwery@4.0.0",
+      "E:\\顺恒利业务管理系统\\DogManager\\qlw"
+    ]
+  ],
+  "_from": "qwery@4.0.0",
+  "_id": "qwery@4.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-fSHjtPfp7tfmhyj02rTei3MD/r4=",
+  "_location": "/qwery",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "qwery@4.0.0",
+    "name": "qwery",
+    "escapedName": "qwery",
+    "rawSpec": "4.0.0",
+    "saveSpec": null,
+    "fetchSpec": "4.0.0"
+  },
+  "_requiredBy": [
+    "/jeesh"
+  ],
+  "_resolved": "https://registry.npmjs.org/qwery/-/qwery-4.0.0.tgz",
+  "_spec": "4.0.0",
+  "_where": "E:\\顺恒利业务管理系统\\DogManager\\qlw",
+  "author": {
+    "name": "Dustin Diaz",
+    "email": "dustin@dustindiaz.com",
+    "url": "http://dustindiaz.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ded/qwery/issues"
+  },
+  "contributors": [
+    {
+      "name": "Rod Vagg",
+      "url": "https://github.com/rvagg"
+    },
+    {
+      "name": "Andrew McCollum",
+      "url": "https://github.com/amccollum"
+    }
+  ],
+  "description": "blazing fast CSS3 query selector engine",
+  "devDependencies": {
+    "phantomjs": "0.2.3",
+    "serve": "*",
+    "sink-test": ">= 1.0.1",
+    "smoosh": "0.4.0"
+  },
+  "ender": "./src/ender.js",
+  "homepage": "https://github.com/ded/qwery",
+  "keywords": [
+    "ender",
+    "query",
+    "css",
+    "selector engine"
+  ],
+  "main": "./qwery.js",
+  "name": "qwery",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ded/qwery.git"
+  },
+  "version": "4.0.0"
+}

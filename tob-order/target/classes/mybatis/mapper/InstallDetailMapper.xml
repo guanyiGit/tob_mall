@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.installdetailmanagement.dao.InstallDetailDao">
+
+	<select id="get" resultType="com.entities.InstallDetailDO">
+		select `id`,`og_id`,`install_id`,`install_num`,`server_id`,`create_time`,`update_time` from t_install_detail where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.entities.InstallDetailDO">
+		select `id`,`og_id`,`install_id`,`install_num`,`server_id`,`create_time`,`update_time` from t_install_detail
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="ogId != null and ogId != ''"> and og_id = #{ogId} </if>
+		  		  <if test="installId != null and installId != ''"> and install_id = #{installId} </if>
+		  		  <if test="installNum != null and installNum != ''"> and install_num = #{installNum} </if>
+		  		  <if test="serverId != null and serverId != ''"> and server_id = #{serverId} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from t_install_detail
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="ogId != null and ogId != ''"> and og_id = #{ogId} </if>
+		  		  <if test="installId != null and installId != ''"> and install_id = #{installId} </if>
+		  		  <if test="installNum != null and installNum != ''"> and install_num = #{installNum} </if>
+		  		  <if test="serverId != null and serverId != ''"> and server_id = #{serverId} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.entities.InstallDetailDO">
+		insert into t_install_detail
+		(
+			`id`, 
+			`og_id`, 
+			`install_id`, 
+			`install_num`, 
+			`server_id`, 
+			`create_time`, 
+			`update_time`
+		)
+		values
+		(
+			#{id}, 
+			#{ogId}, 
+			#{installId}, 
+			#{installNum}, 
+			#{serverId}, 
+			#{createTime}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.entities.InstallDetailDO">
+		update t_install_detail 
+		<set>
+			<if test="ogId != null">`og_id` = #{ogId}, </if>
+			<if test="installId != null">`install_id` = #{installId}, </if>
+			<if test="installNum != null">`install_num` = #{installNum}, </if>
+			<if test="serverId != null">`server_id` = #{serverId}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from t_install_detail where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from t_install_detail where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

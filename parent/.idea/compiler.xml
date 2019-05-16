@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api" />
+        <module name="consumer" />
+        <module name="eureka01" />
+        <module name="eureka02" />
+        <module name="eureka03" />
+        <module name="generator" />
+        <module name="tob-budget" />
+        <module name="tob-goods" />
+        <module name="tob-hystrix-dashboard" />
+        <module name="tob-mall" />
+        <module name="tob-order" />
+        <module name="tob-shiro" />
+        <module name="tob-shopping-cart" />
+        <module name="tob-supplier" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api" target="1.8" />
+      <module name="callback" target="1.8" />
+      <module name="consumer" target="1.8" />
+      <module name="eureka01" target="1.8" />
+      <module name="eureka02" target="1.8" />
+      <module name="eureka03" target="1.8" />
+      <module name="generator" target="1.8" />
+      <module name="parent" target="1.8" />
+      <module name="sms" target="1.8" />
+      <module name="tob-budget" target="1.8" />
+      <module name="tob-goods" target="1.8" />
+      <module name="tob-hystrix-dashboard" target="1.8" />
+      <module name="tob-hystrix-dashboard (1)" target="1.8" />
+      <module name="tob-mall" target="1.8" />
+      <module name="tob-order" target="1.8" />
+      <module name="tob-shiro" target="1.8" />
+      <module name="tob-shopping-cart" target="1.8" />
+      <module name="tob-supplier" target="1.8" />
+      <module name="zuul-gateway" target="1.8" />
+      <module name="zuulgateway" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

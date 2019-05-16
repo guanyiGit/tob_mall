@@ -1,0 +1,11 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.utils.FileUpload",
+      "name": "dfs",
+      "type": "com.utils.FileUpload"
+    }
+  ],
+  "properties": []
+}

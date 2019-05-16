@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../api/api.iml" filepath="$PROJECT_DIR$/../api/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../eureka01/eureka01.iml" filepath="$PROJECT_DIR$/../eureka01/eureka01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../eureka02/eureka02.iml" filepath="$PROJECT_DIR$/../eureka02/eureka02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../eureka03/eureka03.iml" filepath="$PROJECT_DIR$/../eureka03/eureka03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../generator/generator.iml" filepath="$PROJECT_DIR$/../generator/generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent.iml" filepath="$PROJECT_DIR$/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tob-budget/tob-budget.iml" filepath="$PROJECT_DIR$/../tob-budget/tob-budget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tob-goods/tob-goods.iml" filepath="$PROJECT_DIR$/../tob-goods/tob-goods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tob-hystrix-dashboard/tob-hystrix-dashboard.iml" filepath="$PROJECT_DIR$/../tob-hystrix-dashboard/tob-hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tob-mall/tob-mall.iml" filepath="$PROJECT_DIR$/../tob-mall/tob-mall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tob-order/tob-order.iml" filepath="$PROJECT_DIR$/../tob-order/tob-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tob-shiro/tob-shiro.iml" filepath="$PROJECT_DIR$/../tob-shiro/tob-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tob-shopping-cart/tob-shopping-cart.iml" filepath="$PROJECT_DIR$/../tob-shopping-cart/tob-shopping-cart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tob-supplier/tob-supplier.iml" filepath="$PROJECT_DIR$/../tob-supplier/tob-supplier.iml" />
+    </modules>
+  </component>
+</project>
