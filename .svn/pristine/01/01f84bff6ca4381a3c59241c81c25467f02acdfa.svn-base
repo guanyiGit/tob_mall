@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.AttrDao">
+
+	<select id="get" resultType="com.entities.AttrDO">
+		select `attr_id`,`attr_name`,`status`,`cid`,`group_id`,`isSku`,`isMust`,`create_time`,`update_time` from attr where attr_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.entities.AttrDO">
+		select `attr_id`,`attr_name`,`status`,`cid`,`group_id`,`isSku`,`isMust`,`create_time`,`update_time` from attr
+        <where>  
+		  		  <if test="attrId != null and attrId != ''"> and attr_id = #{attrId} </if>
+		  		  <if test="attrName != null and attrName != ''"> and attr_name = #{attrName} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="cid != null and cid != ''"> and cid = #{cid} </if>
+		  		  <if test="groupId != null and groupId != ''"> and group_id = #{groupId} </if>
+		  		  <if test="issku != null and issku != ''"> and isSku = #{issku} </if>
+		  		  <if test="ismust != null and ismust != ''"> and isMust = #{ismust} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by attr_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from attr
+		 <where>  
+		  		  <if test="attrId != null and attrId != ''"> and attr_id = #{attrId} </if>
+		  		  <if test="attrName != null and attrName != ''"> and attr_name = #{attrName} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="cid != null and cid != ''"> and cid = #{cid} </if>
+		  		  <if test="groupId != null and groupId != ''"> and group_id = #{groupId} </if>
+		  		  <if test="issku != null and issku != ''"> and isSku = #{issku} </if>
+		  		  <if test="ismust != null and ismust != ''"> and isMust = #{ismust} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.entities.AttrDO" useGeneratedKeys="true" keyProperty="attrId">
+		insert into attr
+		(
+			`attr_name`, 
+			`status`, 
+			`cid`, 
+			`group_id`, 
+			`isSku`, 
+			`isMust`, 
+			`create_time`, 
+			`update_time`
+		)
+		values
+		(
+			#{attrName}, 
+			#{status}, 
+			#{cid}, 
+			#{groupId}, 
+			#{issku}, 
+			#{ismust}, 
+			#{createTime}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.entities.AttrDO">
+		update attr 
+		<set>
+			<if test="attrName != null">`attr_name` = #{attrName}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="cid != null">`cid` = #{cid}, </if>
+			<if test="groupId != null">`group_id` = #{groupId}, </if>
+			<if test="issku != null">`isSku` = #{issku}, </if>
+			<if test="ismust != null">`isMust` = #{ismust}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where attr_id = #{attrId}
+	</update>
+	
+	<delete id="remove">
+		delete from attr where attr_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from attr where attr_id in 
+		<foreach item="attrId" collection="array" open="(" separator="," close=")">
+			#{attrId}
+		</foreach>
+	</delete>
+
+</mapper>

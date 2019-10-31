@@ -1,0 +1,355 @@
+2018-12-27 16:10:33 -Starting BootdoApplication on guanyi with PID 34356 (F:\development\workspace\IDEA_wordspace\tob-mall\generator\target\classes started by 123456 in F:\development\workspace\IDEA_wordspace\tob-mall\parent)
+2018-12-27 16:10:33 -The following profiles are active: dev
+2018-12-27 16:10:33 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@12bfd80d: startup date [Thu Dec 27 16:10:33 CST 2018]; root of context hierarchy
+2018-12-27 16:10:36 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-27 16:10:37 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f74a2159] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-27 16:10:37 -Tomcat initialized with port(s): 80 (http)
+2018-12-27 16:10:37 -Initializing ProtocolHandler ["http-nio-80"]
+2018-12-27 16:10:37 -Starting service [Tomcat]
+2018-12-27 16:10:37 -Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-12-27 16:10:38 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [F:\development\JDK\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;D:\install\TortoiseSVN\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;D:\install\TortoiseSVN\bin;F:\development\JDK\jdk1.8.0_162\bin;F:\development\apache-maven-3.5.2\bin;F:\development\node-v8.11.2-win-x64;D:\install\OpenSSL-Win32\bin;%SVN_HOME%;%GIT_HOME\bin%;.]
+2018-12-27 16:10:38 -Initializing Spring embedded WebApplicationContext
+2018-12-27 16:10:38 -Root WebApplicationContext: initialization completed in 4788 ms
+2018-12-27 16:10:38 -Servlet dispatcherServlet mapped to [/]
+2018-12-27 16:10:38 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-27 16:10:38 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-27 16:10:38 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-27 16:10:38 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-27 16:10:38 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:10:39 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@12bfd80d: startup date [Thu Dec 27 16:10:33 CST 2018]; root of context hierarchy
+2018-12-27 16:10:39 -Detected ResponseBodyAdvice bean in fastJsonpResponseBodyAdvice
+2018-12-27 16:10:39 -Mapped "{[/common/generator/update],methods=[POST]}" onto com.utils.R com.controller.GeneratorController.update(java.util.Map<java.lang.String, java.lang.Object>)
+2018-12-27 16:10:39 -Mapped "{[/common/generator/list],methods=[GET]}" onto java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.controller.GeneratorController.list()
+2018-12-27 16:10:39 -Mapped "{[/common/generator/code/{tableName}]}" onto public void com.controller.GeneratorController.code(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2018-12-27 16:10:39 -Mapped "{[/common/generator/edit],methods=[GET]}" onto public java.lang.String com.controller.GeneratorController.edit(org.springframework.ui.Model)
+2018-12-27 16:10:39 -Mapped "{[/common/generator/batchCode]}" onto public void com.controller.GeneratorController.batchCode(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2018-12-27 16:10:39 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-27 16:10:39 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-27 16:10:39 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:10:39 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:10:39 -Detected ResponseBodyAdvice implementation in fastJsonpResponseBodyAdvice
+2018-12-27 16:10:39 -[THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-12-27 16:10:39 -Adding welcome page template: index
+2018-12-27 16:10:41 -{dataSource-1} inited
+2018-12-27 16:10:42 -Using default implementation for ThreadExecutor
+2018-12-27 16:10:42 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-12-27 16:10:42 -Quartz Scheduler v.2.2.1 created.
+2018-12-27 16:10:42 -RAMJobStore initialized.
+2018-12-27 16:10:42 -Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-12-27 16:10:42 -Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-12-27 16:10:42 -Quartz scheduler version: 2.2.1
+2018-12-27 16:10:42 -JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@6b4b6cd6
+2018-12-27 16:10:42 -Registering beans for JMX exposure on startup
+2018-12-27 16:10:42 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-27 16:10:42 -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-12-27 16:10:42 -Starting beans in phase 2147483647
+2018-12-27 16:10:42 -Starting Quartz Scheduler now
+2018-12-27 16:10:42 -Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-12-27 16:10:42 -Starting ProtocolHandler ["http-nio-80"]
+2018-12-27 16:10:42 -Failed to start connector [Connector[HTTP/1.1-80]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-80]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:256)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:198)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:300)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:553)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243)
+	at com.BootdoApplication.main(BootdoApplication.java:20)
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1020)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1150)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:591)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1018)
+	... 14 common frames omitted
+2018-12-27 16:10:42 -Pausing ProtocolHandler ["http-nio-80"]
+2018-12-27 16:10:42 -Stopping service [Tomcat]
+2018-12-27 16:10:42 -The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2018-12-27 16:10:42 -Stopping ProtocolHandler ["http-nio-80"]
+2018-12-27 16:10:42 -Destroying ProtocolHandler ["http-nio-80"]
+2018-12-27 16:10:42 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-27 16:10:42 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 80 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 80, or configure this application to listen on another port.
+
+2018-12-27 16:10:42 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@12bfd80d: startup date [Thu Dec 27 16:10:33 CST 2018]; root of context hierarchy
+2018-12-27 16:10:42 -Stopping beans in phase 2147483647
+2018-12-27 16:10:42 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-12-27 16:10:42 -Shutting down Quartz Scheduler
+2018-12-27 16:10:42 -Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2018-12-27 16:10:42 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-12-27 16:10:42 -Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2018-12-27 16:10:42 -Unregistering JMX-exposed beans on shutdown
+2018-12-27 16:10:42 -Unregistering JMX-exposed beans
+2018-12-27 16:10:42 -{dataSource-1} closed
+2018-12-27 16:12:22 -Starting BootdoApplication on guanyi with PID 38144 (F:\development\workspace\IDEA_wordspace\tob-mall\generator\target\classes started by 123456 in F:\development\workspace\IDEA_wordspace\tob-mall\parent)
+2018-12-27 16:12:22 -The following profiles are active: dev
+2018-12-27 16:12:22 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@45be7cd5: startup date [Thu Dec 27 16:12:22 CST 2018]; root of context hierarchy
+2018-12-27 16:12:25 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-27 16:12:26 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d1c1ccf2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-27 16:12:26 -Tomcat initialized with port(s): 80 (http)
+2018-12-27 16:12:26 -Initializing ProtocolHandler ["http-nio-80"]
+2018-12-27 16:12:26 -Starting service [Tomcat]
+2018-12-27 16:12:26 -Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-12-27 16:12:26 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [F:\development\JDK\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;D:\install\TortoiseSVN\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;D:\install\TortoiseSVN\bin;F:\development\JDK\jdk1.8.0_162\bin;F:\development\apache-maven-3.5.2\bin;F:\development\node-v8.11.2-win-x64;D:\install\OpenSSL-Win32\bin;%SVN_HOME%;%GIT_HOME\bin%;.]
+2018-12-27 16:12:26 -Initializing Spring embedded WebApplicationContext
+2018-12-27 16:12:26 -Root WebApplicationContext: initialization completed in 3961 ms
+2018-12-27 16:12:26 -Servlet dispatcherServlet mapped to [/]
+2018-12-27 16:12:26 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-27 16:12:26 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-27 16:12:26 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-27 16:12:26 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-27 16:12:27 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:12:27 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@45be7cd5: startup date [Thu Dec 27 16:12:22 CST 2018]; root of context hierarchy
+2018-12-27 16:12:27 -Detected ResponseBodyAdvice bean in fastJsonpResponseBodyAdvice
+2018-12-27 16:12:27 -Mapped "{[/common/generator/update],methods=[POST]}" onto com.utils.R com.controller.GeneratorController.update(java.util.Map<java.lang.String, java.lang.Object>)
+2018-12-27 16:12:27 -Mapped "{[/common/generator/list],methods=[GET]}" onto java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.controller.GeneratorController.list()
+2018-12-27 16:12:27 -Mapped "{[/common/generator/code/{tableName}]}" onto public void com.controller.GeneratorController.code(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2018-12-27 16:12:27 -Mapped "{[/common/generator/batchCode]}" onto public void com.controller.GeneratorController.batchCode(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2018-12-27 16:12:27 -Mapped "{[/common/generator/edit],methods=[GET]}" onto public java.lang.String com.controller.GeneratorController.edit(org.springframework.ui.Model)
+2018-12-27 16:12:27 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-27 16:12:27 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-27 16:12:27 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:12:27 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:12:27 -Detected ResponseBodyAdvice implementation in fastJsonpResponseBodyAdvice
+2018-12-27 16:12:27 -[THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-12-27 16:12:27 -Adding welcome page template: index
+2018-12-27 16:12:28 -{dataSource-1} inited
+2018-12-27 16:12:29 -Using default implementation for ThreadExecutor
+2018-12-27 16:12:29 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-12-27 16:12:29 -Quartz Scheduler v.2.2.1 created.
+2018-12-27 16:12:29 -RAMJobStore initialized.
+2018-12-27 16:12:29 -Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-12-27 16:12:29 -Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-12-27 16:12:29 -Quartz scheduler version: 2.2.1
+2018-12-27 16:12:29 -JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@4d5bfb1a
+2018-12-27 16:12:29 -Registering beans for JMX exposure on startup
+2018-12-27 16:12:29 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-27 16:12:29 -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-12-27 16:12:29 -Starting beans in phase 2147483647
+2018-12-27 16:12:29 -Starting Quartz Scheduler now
+2018-12-27 16:12:29 -Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-12-27 16:12:29 -Starting ProtocolHandler ["http-nio-80"]
+2018-12-27 16:12:29 -Failed to start connector [Connector[HTTP/1.1-80]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-80]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:256)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:198)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:300)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:553)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243)
+	at com.BootdoApplication.main(BootdoApplication.java:20)
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1020)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1150)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:591)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1018)
+	... 14 common frames omitted
+2018-12-27 16:12:29 -Pausing ProtocolHandler ["http-nio-80"]
+2018-12-27 16:12:29 -Stopping service [Tomcat]
+2018-12-27 16:12:29 -The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2018-12-27 16:12:29 -Stopping ProtocolHandler ["http-nio-80"]
+2018-12-27 16:12:29 -Destroying ProtocolHandler ["http-nio-80"]
+2018-12-27 16:12:29 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-27 16:12:29 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 80 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 80, or configure this application to listen on another port.
+
+2018-12-27 16:12:29 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@45be7cd5: startup date [Thu Dec 27 16:12:22 CST 2018]; root of context hierarchy
+2018-12-27 16:12:29 -Stopping beans in phase 2147483647
+2018-12-27 16:12:29 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-12-27 16:12:29 -Shutting down Quartz Scheduler
+2018-12-27 16:12:29 -Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2018-12-27 16:12:29 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-12-27 16:12:29 -Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2018-12-27 16:12:29 -Unregistering JMX-exposed beans on shutdown
+2018-12-27 16:12:29 -Unregistering JMX-exposed beans
+2018-12-27 16:12:29 -{dataSource-1} closed
+2018-12-27 16:12:53 -Starting BootdoApplication on guanyi with PID 38312 (F:\development\workspace\IDEA_wordspace\tob-mall\generator\target\classes started by 123456 in F:\development\workspace\IDEA_wordspace\tob-mall\parent)
+2018-12-27 16:12:53 -The following profiles are active: dev
+2018-12-27 16:12:53 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@346939bf: startup date [Thu Dec 27 16:12:53 CST 2018]; root of context hierarchy
+2018-12-27 16:12:55 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-27 16:12:56 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$312bad82] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-27 16:12:57 -Tomcat initialized with port(s): 20080 (http)
+2018-12-27 16:12:57 -Initializing ProtocolHandler ["http-nio-20080"]
+2018-12-27 16:12:57 -Starting service [Tomcat]
+2018-12-27 16:12:57 -Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-12-27 16:12:57 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [F:\development\JDK\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;D:\install\TortoiseSVN\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;D:\install\TortoiseSVN\bin;F:\development\JDK\jdk1.8.0_162\bin;F:\development\apache-maven-3.5.2\bin;F:\development\node-v8.11.2-win-x64;D:\install\OpenSSL-Win32\bin;%SVN_HOME%;%GIT_HOME\bin%;.]
+2018-12-27 16:12:57 -Initializing Spring embedded WebApplicationContext
+2018-12-27 16:12:57 -Root WebApplicationContext: initialization completed in 3973 ms
+2018-12-27 16:12:57 -Servlet dispatcherServlet mapped to [/]
+2018-12-27 16:12:57 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-27 16:12:57 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-27 16:12:57 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-27 16:12:57 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-27 16:12:57 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:12:58 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@346939bf: startup date [Thu Dec 27 16:12:53 CST 2018]; root of context hierarchy
+2018-12-27 16:12:58 -Detected ResponseBodyAdvice bean in fastJsonpResponseBodyAdvice
+2018-12-27 16:12:58 -Mapped "{[/common/generator/update],methods=[POST]}" onto com.utils.R com.controller.GeneratorController.update(java.util.Map<java.lang.String, java.lang.Object>)
+2018-12-27 16:12:58 -Mapped "{[/common/generator/list],methods=[GET]}" onto java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.controller.GeneratorController.list()
+2018-12-27 16:12:58 -Mapped "{[/common/generator/code/{tableName}]}" onto public void com.controller.GeneratorController.code(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2018-12-27 16:12:58 -Mapped "{[/common/generator/batchCode]}" onto public void com.controller.GeneratorController.batchCode(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2018-12-27 16:12:58 -Mapped "{[/common/generator/edit],methods=[GET]}" onto public java.lang.String com.controller.GeneratorController.edit(org.springframework.ui.Model)
+2018-12-27 16:12:58 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-27 16:12:58 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-27 16:12:58 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:12:58 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 16:12:58 -Detected ResponseBodyAdvice implementation in fastJsonpResponseBodyAdvice
+2018-12-27 16:12:58 -[THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-12-27 16:12:58 -Adding welcome page template: index
+2018-12-27 16:12:59 -{dataSource-1} inited
+2018-12-27 16:12:59 -Using default implementation for ThreadExecutor
+2018-12-27 16:12:59 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-12-27 16:12:59 -Quartz Scheduler v.2.2.1 created.
+2018-12-27 16:12:59 -RAMJobStore initialized.
+2018-12-27 16:12:59 -Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-12-27 16:12:59 -Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-12-27 16:12:59 -Quartz scheduler version: 2.2.1
+2018-12-27 16:12:59 -JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@773236a7
+2018-12-27 16:12:59 -Registering beans for JMX exposure on startup
+2018-12-27 16:12:59 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-27 16:12:59 -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-12-27 16:12:59 -Starting beans in phase 2147483647
+2018-12-27 16:12:59 -Starting Quartz Scheduler now
+2018-12-27 16:12:59 -Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-12-27 16:12:59 -Starting ProtocolHandler ["http-nio-20080"]
+2018-12-27 16:12:59 -Using a shared selector for servlet write/read
+2018-12-27 16:12:59 -Tomcat started on port(s): 20080 (http) with context path ''
+2018-12-27 16:12:59 -Started BootdoApplication in 7.621 seconds (JVM running for 8.844)
+2018-12-27 16:13:16 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-12-27 16:13:16 -FrameworkServlet 'dispatcherServlet': initialization started
+2018-12-27 16:13:16 -FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2018-12-27 18:12:51 -Starting BootdoApplication on guanyi with PID 38428 (F:\development\workspace\IDEA_wordspace\tob-mall\generator\target\classes started by 123456 in F:\development\workspace\IDEA_wordspace\tob-mall\parent)
+2018-12-27 18:12:51 -The following profiles are active: dev
+2018-12-27 18:12:52 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4b20ca2b: startup date [Thu Dec 27 18:12:52 CST 2018]; root of context hierarchy
+2018-12-27 18:12:54 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-27 18:12:56 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$79d47615] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-27 18:12:56 -Tomcat initialized with port(s): 20080 (http)
+2018-12-27 18:12:56 -Initializing ProtocolHandler ["http-nio-20080"]
+2018-12-27 18:12:56 -Starting service [Tomcat]
+2018-12-27 18:12:56 -Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-12-27 18:12:56 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [F:\development\JDK\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;D:\install\TortoiseSVN\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;D:\install\TortoiseSVN\bin;F:\development\JDK\jdk1.8.0_162\bin;F:\development\apache-maven-3.5.2\bin;F:\development\node-v8.11.2-win-x64;D:\install\OpenSSL-Win32\bin;%SVN_HOME%;%GIT_HOME\bin%;.]
+2018-12-27 18:12:56 -Initializing Spring embedded WebApplicationContext
+2018-12-27 18:12:56 -Root WebApplicationContext: initialization completed in 4565 ms
+2018-12-27 18:12:56 -Servlet dispatcherServlet mapped to [/]
+2018-12-27 18:12:56 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-27 18:12:56 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-27 18:12:56 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-27 18:12:56 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-27 18:12:57 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 18:12:57 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4b20ca2b: startup date [Thu Dec 27 18:12:52 CST 2018]; root of context hierarchy
+2018-12-27 18:12:57 -Detected ResponseBodyAdvice bean in fastJsonpResponseBodyAdvice
+2018-12-27 18:12:57 -Mapped "{[/common/generator/update],methods=[POST]}" onto com.utils.R com.controller.GeneratorController.update(java.util.Map<java.lang.String, java.lang.Object>)
+2018-12-27 18:12:57 -Mapped "{[/common/generator/list],methods=[GET]}" onto java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.controller.GeneratorController.list()
+2018-12-27 18:12:57 -Mapped "{[/common/generator/code/{tableName}]}" onto public void com.controller.GeneratorController.code(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2018-12-27 18:12:57 -Mapped "{[/common/generator/edit],methods=[GET]}" onto public java.lang.String com.controller.GeneratorController.edit(org.springframework.ui.Model)
+2018-12-27 18:12:57 -Mapped "{[/common/generator/batchCode]}" onto public void com.controller.GeneratorController.batchCode(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2018-12-27 18:12:57 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-27 18:12:57 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-27 18:12:57 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 18:12:57 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-27 18:12:57 -Detected ResponseBodyAdvice implementation in fastJsonpResponseBodyAdvice
+2018-12-27 18:12:57 -[THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-12-27 18:12:57 -Adding welcome page template: index
+2018-12-27 18:12:58 -{dataSource-1} inited
+2018-12-27 18:12:59 -Using default implementation for ThreadExecutor
+2018-12-27 18:12:59 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-12-27 18:12:59 -Quartz Scheduler v.2.2.1 created.
+2018-12-27 18:12:59 -RAMJobStore initialized.
+2018-12-27 18:12:59 -Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-12-27 18:12:59 -Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-12-27 18:12:59 -Quartz scheduler version: 2.2.1
+2018-12-27 18:12:59 -JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@15c900be
+2018-12-27 18:13:00 -Registering beans for JMX exposure on startup
+2018-12-27 18:13:00 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-27 18:13:00 -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-12-27 18:13:00 -Starting beans in phase 2147483647
+2018-12-27 18:13:00 -Starting Quartz Scheduler now
+2018-12-27 18:13:00 -Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-12-27 18:13:00 -Starting ProtocolHandler ["http-nio-20080"]
+2018-12-27 18:13:00 -Using a shared selector for servlet write/read
+2018-12-27 18:13:00 -Tomcat started on port(s): 20080 (http) with context path ''
+2018-12-27 18:13:00 -Started BootdoApplication in 9.013 seconds (JVM running for 12.059)

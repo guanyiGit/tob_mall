@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deliverydetailmanagement.dao.DeliveryDetailDao">
+
+	<select id="get" resultType="com.entities.DeliveryDetailDO">
+		select `id`,`og_id`,`delivery_id`,`real_num`,`send_id`,`delivery_time`,`install_time`,`create_time`,`update_time` from t_delivery_detail where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.entities.DeliveryDetailDO">
+		select `id`,`og_id`,`delivery_id`,`real_num`,`send_id`,`delivery_time`,`install_time`,`create_time`,`update_time` from t_delivery_detail
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="ogId != null and ogId != ''"> and og_id = #{ogId} </if>
+		  		  <if test="deliveryId != null and deliveryId != ''"> and delivery_id = #{deliveryId} </if>
+		  		  <if test="realNum != null and realNum != ''"> and real_num = #{realNum} </if>
+		  		  <if test="sendId != null and sendId != ''"> and send_id = #{sendId} </if>
+		  		  <if test="deliveryTime != null and deliveryTime != ''"> and delivery_time = #{deliveryTime} </if>
+		  		  <if test="installTime != null and installTime != ''"> and install_time = #{installTime} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from t_delivery_detail
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="ogId != null and ogId != ''"> and og_id = #{ogId} </if>
+		  		  <if test="deliveryId != null and deliveryId != ''"> and delivery_id = #{deliveryId} </if>
+		  		  <if test="realNum != null and realNum != ''"> and real_num = #{realNum} </if>
+		  		  <if test="sendId != null and sendId != ''"> and send_id = #{sendId} </if>
+		  		  <if test="deliveryTime != null and deliveryTime != ''"> and delivery_time = #{deliveryTime} </if>
+		  		  <if test="installTime != null and installTime != ''"> and install_time = #{installTime} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.entities.DeliveryDetailDO">
+		insert into t_delivery_detail
+		(
+			`id`, 
+			`og_id`, 
+			`delivery_id`, 
+			`real_num`, 
+			`send_id`, 
+			`delivery_time`, 
+			`install_time`, 
+			`create_time`, 
+			`update_time`
+		)
+		values
+		(
+			#{id}, 
+			#{ogId}, 
+			#{deliveryId}, 
+			#{realNum}, 
+			#{sendId}, 
+			#{deliveryTime}, 
+			#{installTime}, 
+			#{createTime}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.entities.DeliveryDetailDO">
+		update t_delivery_detail 
+		<set>
+			<if test="ogId != null">`og_id` = #{ogId}, </if>
+			<if test="deliveryId != null">`delivery_id` = #{deliveryId}, </if>
+			<if test="realNum != null">`real_num` = #{realNum}, </if>
+			<if test="sendId != null">`send_id` = #{sendId}, </if>
+			<if test="deliveryTime != null">`delivery_time` = #{deliveryTime}, </if>
+			<if test="installTime != null">`install_time` = #{installTime}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from t_delivery_detail where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from t_delivery_detail where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

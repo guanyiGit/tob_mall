@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.CardDao">
+
+    <select id="get" resultType="com.entities.CardDO">
+		select `crad_id`,`goods_id`,`sku_id`,`count`,`price`,`add_time`,`remark`,`user_id` from t_card where crad_id = #{value}
+	</select>
+
+    <select id="list" resultType="com.entities.CardDO">
+        select `crad_id`,`goods_id`,`sku_id`,`count`,`price`,`add_time`,`remark`,`user_id` from t_card
+        <where>
+            <if test="cradId != null and cradId != ''">and crad_id = #{cradId}</if>
+            <if test="goodsId != null and goodsId != ''">and goods_id = #{goodsId}</if>
+            <if test="skuId != null and skuId != ''">and sku_id = #{skuId}</if>
+            <if test="count != null and count != ''">and count = #{count}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="addTime != null and addTime != ''">and add_time = #{addTime}</if>
+            <if test="remark != null and remark != ''">and remark = #{remark}</if>
+            <if test="userId != null and userId != ''">and user_id = #{userId}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by crad_id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from t_card
+        <where>
+            <if test="cradId != null and cradId != ''">and crad_id = #{cradId}</if>
+            <if test="goodsId != null and goodsId != ''">and goods_id = #{goodsId}</if>
+            <if test="skuId != null and skuId != ''">and sku_id = #{skuId}</if>
+            <if test="count != null and count != ''">and count = #{count}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="addTime != null and addTime != ''">and add_time = #{addTime}</if>
+            <if test="remark != null and remark != ''">and remark = #{remark}</if>
+            <if test="userId != null and userId != ''">and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.entities.CardDO" useGeneratedKeys="true" keyProperty="cradId">
+		insert into t_card
+		(
+			`goods_id`, 
+			`sku_id`, 
+			`count`, 
+			`price`, 
+			`add_time`, 
+			`remark`, 
+			`user_id`
+		)
+		values
+		(
+			#{goodsId}, 
+			#{skuId}, 
+			#{count}, 
+			#{price}, 
+			#{addTime}, 
+			#{remark}, 
+			#{userId}
+		)
+	</insert>
+
+    <update id="update" parameterType="com.entities.CardDO">
+        update t_card
+        <set>
+            <if test="goodsId != null">`goods_id` = #{goodsId},</if>
+            <if test="skuId != null">`sku_id` = #{skuId},</if>
+            <if test="count != null">`count` = #{count},</if>
+            <if test="price != null">`price` = #{price},</if>
+            <if test="addTime != null">`add_time` = #{addTime},</if>
+            <if test="remark != null">`remark` = #{remark},</if>
+            <if test="userId != null">`user_id` = #{userId}</if>
+        </set>
+        where crad_id = #{cradId}
+    </update>
+
+    <delete id="remove">
+		delete from t_card where crad_id = #{value}
+	</delete>
+
+    <delete id="batchRemove">
+        delete from t_card where crad_id in
+        <foreach item="cradId" collection="array" open="(" separator="," close=")">
+            #{cradId}
+        </foreach>
+    </delete>
+
+    <resultMap id="MycardResultMap" type="com.pojo.Mycard" >
+        <association property="userInfo" javaType="com.entities.UserInfo"></association>
+        <association property="supplierDO" javaType="com.entities.SupplierDO"></association>
+        <collection property="goodsInfos" ofType="com.pojo.GoodsInfo">
+            <association property="goodsDO" javaType="com.entities.GoodsDO"></association>
+            <collection property="skuDOList" ofType="com.pojo.SkuInfo">
+                <collection property="orderDetailDOs" ofType="com.entities.OrderDetailDO"></collection>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <!--查列表-->
+    <select id="findListByUserId" resultMap="MycardResultMap">
+        SELECT
+            car.*,d.*,sk.*,ui.*,su.*
+        FROM (
+            SELECT * FROM t_card
+            WHERE user_id = #{userId}
+            LIMIT #{reqPage.offset},#{reqPage.limit}
+        ) car
+        LEFT JOIN goods d ON d.goods_id = car.goods_id
+        LEFT JOIN sku sk ON sk.goods_id = car.goods_id
+        LEFT JOIN t_user_info ui ON ui.id = car.user_id
+        LEFT JOIN supplier su ON su.sup_id = d.sup_id
+        GROUP BY car.crad_id
+        ORDER BY car.add_time ASC
+    </select>
+
+    <!--查列表 条数-->
+    <select id="findListByUserIdCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM t_card
+        WHERE user_id = #{userId}
+    </select>
+
+</mapper>

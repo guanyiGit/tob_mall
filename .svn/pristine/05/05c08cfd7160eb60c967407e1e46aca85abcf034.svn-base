@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ProductDao">
+
+    <resultMap id="SkuRefAttrsResultMap" type="com.pojo.SkuRefAttrs">
+            <id property="skuId" column="sku_sku_Id"></id>
+            <result property="goodsId" column="sku_goods_id"></result>
+            <result property="skuNum" column="sku_sku_num"></result>
+            <result property="skuName" column="sku_sku_name"></result>
+            <result property="price" column="sku_price"></result>
+            <result property="stock" column="sku_stock"></result>
+            <result property="status" column="sku_status"></result>
+            <result property="createTime" column="sku_create_time"></result>
+            <result property="updateTime" column="sku_update_time"></result>
+        <collection property="attrVOS" ofType="com.pojo.AttrVO">
+            <id property="attrId" column="a_attr_id"></id>
+            <result property="attrName" column="a_attr_name"></result>
+            <result property="status" column="a_status"></result>
+            <result property="cid" column="a_cid"></result>
+            <result property="groupId" column="a_group_id"></result>
+            <result property="issku" column="a_isSku"></result>
+            <result property="ismust" column="a_isMust"></result>
+            <result property="createTime" column="a_create_time"></result>
+            <result property="updateTime" column="a_update_time"></result>
+            <collection property="attrValueDOS" ofType="com.entities.AttrValueDO">
+                <id property="avId" column="av_av_id"></id>
+                <result property="attrId" column="av_attr_id"></result>
+                <result property="attrValue" column="av_attr_value"></result>
+                <result property="status" column="av_status"></result>
+                <result property="createTime" column="av_create_time"></result>
+                <result property="updateTime" column="av_update_time"></result>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <resultMap id="ProductResultMap" type="com.pojo.Product">
+        <id property="createTime" column="g_create_time"></id>
+        <result property="totalNum" column="total_num"></result>
+        <result property="viewNum" column="view_Num"></result>
+        <collection property="tMediaVos" ofType="com.pojo.MediaRefVO" >
+            <id property="createDate" column="m_create_date"></id>
+            <result property="isVideo" column="m_is_video"></result>
+            <result property="type" column="m_type"></result>
+            <association property="mediaInfoDO" javaType="com.entities.MediaInfoDO">
+                <id property="thumbnailUrl" column="thumbnail_url"></id>
+            </association>
+        </collection>
+        <collection property="skuDOList" ofType="com.entities.SkuDO">
+            <id property="skuId" column="sku_id"></id>
+        </collection>
+    </resultMap>
+
+    <resultMap id="detailsResultMap" type="com.pojo.SkuDateils">
+        <id property="skuId" column="sku_id"></id>
+        <result property="totalNum" column="total_num"></result>
+        <result property="viewNum" column="view_Num"></result>
+        <result property="createTime" column="sku_create_time"></result>
+        <association property="goodsVO" javaType="com.pojo.GoodsVO">
+            <id property="goodsId" column="goods_id"></id>
+            <result property="createTime" column="gs_create_time"></result>
+            <association property="supplierDO" javaType="com.entities.SupplierDO">
+                <id property="supId" column="sup_id"></id>
+                <result property="createTime" column="sup_create_time"></result>
+            </association>
+            <association property="goodsBrandDO" javaType="com.entities.GoodsBrandDO">
+                <id property="brandId" column="brand_id"></id>
+                <result property="createTime" column="gb_create_time"></result>
+            </association>
+            <association property="goodsCategoryDO" javaType="com.entities.GoodsCategoryDO">
+                <id property="cid" column="cid"></id>
+                <result property="createTime" column="gc_create_time"></result>
+            </association>
+            <collection property="goodsValRefVOS" ofType="com.pojo.GoodsValRefVO">
+                <id property="gvrId" column="gvr_id"></id>
+                <result property="createTime" column="gvr_create_time"></result>
+                <association property="attrValueVo" javaType="com.pojo.AttrValueVo" columnPrefix="gsa_">
+                    <id property="avId" column="av_id"></id>
+                    <result property="status" column="v_status"></result>
+                    <result property="updateTime" column="v_update_time"></result>
+                    <result property="createTime" column="gsa_create_time"></result>
+                    <association property="attrDO" javaType="com.entities.AttrDO">
+                        <id property="attrId" column="attr_id"></id>
+                    </association>
+                </association>
+            </collection>
+            <collection property="mediaRefVOS" ofType="com.pojo.MediaRefVO">
+                <id property="createDate" column="gsm_create_time"></id>
+                <result property="isVideo" column="m_is_video"></result>
+                <result property="type" column="m_type"></result>
+                <association property="mediaInfoDO" javaType="com.entities.MediaInfoDO">
+                    <id property="url" column="mi_url"></id>
+                    <result property="thumbnailUrl" column="mi_thumbnail_url"></result>
+                </association>
+            </collection>
+            <collection property="goodsInfoMedias" ofType="com.pojo.MediaRefVO">
+                <id property="createDate" column="gsim_m2_create_date"></id>
+                <result property="isVideo" column="m2_is_video"></result>
+                <result property="type" column="m2_type"></result>
+                <association property="mediaInfoDO" javaType="com.entities.MediaInfoDO" columnPrefix="mi2_">
+                    <id property="url" column="mi2_url"></id>
+                    <id property="thumbnailUrl" column="mi2_thumbnail_url"></id>
+                </association>
+            </collection>
+        </association>
+        <collection property="skuValueRefVos" ofType="com.pojo.SkuValueRefVo">
+            <id property="svrId" column="svr_id"></id>
+            <result property="createTime" column="ska_create_time"></result>
+            <association property="attrValueVo" javaType="com.pojo.AttrValueVo" columnPrefix="ska_">
+                <id property="avId" column="av_id"></id>
+                <result property="status" column="v_status"></result>
+                <result property="updateTime" column="v_update_time"></result>
+                <result property="createTime" column="gsm_create_time"></result>
+                <association property="attrDO" javaType="com.entities.AttrDO">
+                    <id property="attrId" column="attr_id"></id>
+                </association>
+            </association>
+        </collection>
+        <collection property="evaluationDOS" ofType="com.pojo.EvaluationVO">
+            <id property="id" column="ev_id"></id>
+            <result property="updateTime" column="ev_update_time"></result>
+            <result property="createTime" column="ev_create_time"></result>
+            <result property="content" column="ev_content"></result>
+            <result property="createBy" column="ev_create_by"></result>
+            <result property="goodsId" column="ev_goods_id"></result>
+            <result property="skuId" column="ev_sku_id"></result>
+            <result property="content" column="ev_content"></result>
+        </collection>
+    </resultMap>
+
+    <!--查总条数-->
+    <select id="listCount" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM goods g
+        <where>
+            AND g.`status` = 3
+            <if test="cids != null">
+                <foreach collection="cids" item="cid" open="AND g.cid IN (" separator="," close=")">
+                    #{cid}
+                </foreach>
+            </if>
+            <if test="reqPage != null and reqPage.keyWord != null and reqPage.keyWord != ''">
+                AND g.goods_name LIKE CONCAT('%',#{reqPage.keyWord},'%')
+            </if>
+        </where>
+    </select>
+
+    <!--查列表-->
+    <select id="list" resultMap="ProductResultMap">
+        SELECT
+            g.*,s.*,g.create_time g_create_time,gsi.* ,od.total_num ,brc.view_Num
+        FROM
+        (SELECT  gig.* FROM goods gig
+        <if test="reqPage != null">
+            LIMIT #{reqPage.offset},#{reqPage.limit}
+        </if>
+        ) g
+        LEFT JOIN sku s ON s.goods_id = g.goods_id AND s.`status` = 1
+        LEFT JOIN  (
+            SELECT
+            mr.create_date m_create_date,mr.id m_id,mr.is_video m_is_video,
+            mr.media_id m_media_id,mr.ref_id m_ref_id,mr.type m_type,mr.update_date m_update_date,
+
+            mi.create_date,mi.id,mi.image_ext,mi.`name`,mi.size,mi.url,
+            mi.thumbnail_size,mi.thumbnail_url,mi.title,mi.update_date
+            FROM t_media_ref mr,t_media_info mi WHERE mi.id = mr.media_id ORDER BY mi.create_date DESC
+        ) gsi ON gsi.m_ref_id = g.goods_id AND gsi.m_type = 1
+        LEFT JOIN (
+            SELECT brhis.goods_id, COUNT(brhis.goods_id) view_Num FROM t_browse brhis GROUP BY brhis.goods_id
+        ) brc ON brc.goods_id = g.goods_id
+        LEFT JOIN (
+            SELECT ordd.goods_id,count(ordd.total_num) total_num FROM t_order_detail ordd,t_order ord
+            WHERE ordd.order_id = ord.id
+            AND ord.`status` != 0
+            GROUP BY ordd.goods_id ) od ON od.goods_id = g.goods_id
+        <where>
+            AND g.`status` = 3
+            <if test="cids != null">
+                <foreach collection="cids" item="cid" open="AND g.cid IN (" separator="," close=")">
+                    #{cid}
+                </foreach>
+            </if>
+            <if test="reqPage != null and reqPage.keyWord != null and reqPage.keyWord != ''">
+                AND g.goods_name LIKE CONCAT('%',#{reqPage.keyWord},'%')
+            </if>
+        </where>
+        ORDER BY
+        <if test="type != null and type ==1">
+            g.create_time DESC ,
+        </if>
+        <if test="type != null and type ==2">
+            od.total_num DESC ,
+        </if>
+        s.price ASC
+
+    </select>
+
+    <resultMap id="imgsResultMap" type="com.pojo.MediaRefVO">
+        <id property="id" column="m2_id"></id>
+        <result property="createDate" column="m2_create_date"></result>
+        <result property="isVideo" column="m2_is_video"></result>
+        <result property="mediaId" column="m2_media_id"></result>
+        <result property="refId" column="m2_ref_id"></result>
+        <result property="type" column="m2_type"></result>
+        <result property="updateDate" column="m2_update_date"></result>
+        <association property="mediaInfoDO" javaType="com.entities.MediaInfoDO">
+            <id property="id" column="mi2_id"></id>
+            <id property="name" column="mi2_name"></id>
+            <id property="createDate" column="mi2_create_date"></id>
+            <id property="imageExt" column="mi2_image_ext"></id>
+            <id property="size" column="mi2_size"></id>
+            <id property="url" column="mi2_url"></id>
+            <id property="updateDate" column="mi2_update_date"></id>
+            <id property="title" column="mi2_title"></id>
+            <id property="thumbnailUrl" column="mi2_thumbnail_url"></id>
+            <id property="thumbnailSize" column="mi2_thumbnail_size"></id>
+        </association>
+    </resultMap>
+
+    <!--查图片-->
+    <select id="findImgsByRefIdOrType" resultMap="imgsResultMap">
+        SELECT
+            mr2.create_date m2_create_date,mr2.id m2_id,mr2.is_video m2_is_video,mr2.media_id m2_media_id,
+            mr2.ref_id m2_ref_id,mr2.type m2_type,mr2.update_date m2_update_date,
+
+            mi2.create_date mi2_create_date,mi2.id mi2_id,mi2.image_ext mi2_image_ext,mi2.`name` mi2_name,mi2.size mi2_size,mi2.url mi2_url,
+            mi2.thumbnail_size mi2_thumbnail_size,mi2.thumbnail_url mi2_thumbnail_url,mi2.title mi2_title,mi2.update_date mi2_update_date
+        FROM t_media_ref mr2,t_media_info mi2
+        WHERE mi2.id = mr2.media_id
+        AND mr2.type = #{type}
+        AND mr2.ref_id = #{refId}
+        ORDER BY mi2.create_date DESC
+    </select>
+
+    <!--新增商品-->
+    <insert id="save">
+        <selectKey resultType="java.lang.Long" keyProperty="goodsId" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO goods (
+        goods_name, status, org_id, cid, brand_id,
+        <if test="product.listtingTime != null">
+            listting_time,
+        </if>
+        <if test="product.delistingTime != null">
+            delisting_time,
+        </if>
+        <if test="product.goodsNum != null ">
+            goods_num,
+        </if>
+        <if test="product.remark != null and product.remark != ''">
+            remark,
+        </if>
+        <if test="product.description != null and product.description != ''">
+            description,
+        </if>
+        operator,
+        <if test="product.origin != null and product.origin != ''">
+            origin,
+        </if>
+        <if test="product.packingList != null and product.packingList != ''">
+            packing_list,
+        </if>
+        <if test="product.weight != null">
+            weight,
+        </if>
+        sup_id,sub_id,
+        <if test="product.updateTime != null">
+            update_time,
+        </if>
+        create_time
+        ) VALUES (
+        #{product.goodsName}, #{product.status}, #{product.orgId},#{product.cid},
+        #{product.brandId},
+        <if test="product.listtingTime != null">
+            #{product.listtingTime},
+        </if>
+        <if test="product.delistingTime != null">
+            #{product.delistingTime},
+        </if>
+        <if test="product.goodsNum != null and product.goodsNum != ''">
+            #{product.goodsNum},
+        </if>
+        <if test="product.remark != null and product.remark != ''">
+            #{product.remark},
+        </if>
+        <if test="product.description != null and product.description != ''">
+            #{product.description},
+        </if>
+        #{product.operator},
+        <if test="product.origin != null and product.origin != ''">
+            #{product.origin},
+        </if>
+        <if test="product.packingList != null and product.packingList != ''">
+            #{product.packingList},
+        </if>
+        <if test="product.weight != null">
+            #{product.weight},
+        </if>
+        #{product.supId}, #{product.subId},
+        <if test="product.updateTime != null">
+            #{product.updateTime},
+        </if>
+        #{product.createTime}
+        )
+    </insert>
+
+    <!--查找子集分类-->
+    <select id="findChildren" resultType="com.entities.GoodsCategoryDO">
+        SELECT * FROM goods_category dc
+        <if test="pids != null">
+            <foreach collection="pids" item="pid" open="WHERE dc.parent_cid in (" separator="," close=")">
+                #{pid}
+            </foreach>
+        </if>
+        ORDER BY dc.create_time ASC
+    </select>
+
+    <!--查商品详情-->
+    <select id="details" resultMap="detailsResultMap">
+        SELECT
+            gs.*, gs.create_time gs_create_time,
+            sku.*, sku.create_time sku_create_time,
+            sup.*, sup.create_time sup_create_time,
+            gb.*, gb.create_time gb_create_time,
+            gc.*, gc.create_time gc_create_time,
+            gvr.*, gvr.create_time gvr_create_time,
+            ev.*, ev.id ev_id,ev.update_time ev_update_time, ev.create_time ev_create_time,
+            ev.content ev_content,ev.create_by ev_create_by,ev.goods_id ev_goods_id,
+            ev.sku_id ev_sku_id,ev.type ev_type,
+            evu.id userId,evu.name userName,
+            gsa.*, gsa.gsa_create_time gsa_create_time,
+            svr.*, svr.create_time svr_create_time,
+            ska.*, ska.ska_create_time ska_create_time,
+            gsm.*, gsm.create_date gsm_create_time,
+            <!--gsim.*, gsim.m2_create_date gsim_m2_create_date,-->
+            od.total_num,brc.view_Num
+        FROM (sku sku,goods gs)
+        LEFT JOIN supplier sup ON sup.sup_id = gs.sup_id
+        LEFT JOIN goods_brand gb ON gb.brand_id = gs.brand_id
+        LEFT JOIN goods_category gc ON gc.cid = gs.cid
+        LEFT JOIN goods_value_ref gvr ON gvr.goods_id = gs.goods_id
+        LEFT JOIN t_evaluation ev ON ev.goods_id = gs.goods_id
+        LEFT JOIN t_user_info evu ON evu.id = ev.create_by
+        LEFT JOIN (
+            SELECT brhis.goods_id, COUNT(brhis.goods_id) view_Num FROM t_browse brhis GROUP BY brhis.goods_id
+        ) brc ON brc.goods_id = gs.goods_id
+        LEFT JOIN (
+            SELECT
+                av.attr_id gsa_attr_id,av.attr_value gsa_attr_value,av.av_id gsa_av_id,av.create_time gsa_create_time,av.`status` gsa_v_status,av.update_time gsa_v_update_time,
+
+                a.attr_name gsa_attr_name,a.cid gsa_cid,a.group_id gsa_group_id,
+                a.isMust gsa_isMust,a.isSku gsa_isSku,a.`status` gsa_status,a.update_time gsa_update_time
+          FROM attr a,attr_value av WHERE a.attr_id = av.attr_id
+        ) gsa ON gsa.gsa_attr_id = gvr.av_id
+
+        LEFT JOIN sku_value_ref svr ON svr.sku_id = sku.sku_id
+        LEFT JOIN (
+            SELECT
+                av.attr_id ska_attr_id,av.attr_value ska_attr_value,av.av_id ska_av_id,av.create_time ska_create_time,av.`status` ska_v_status,av.update_time ska_v_update_time,
+
+                a.attr_name ska_attr_name,a.cid ska_cid,a.group_id ska_group_id,
+                a.isMust ska_isMust,a.isSku ska_isSku,a.`status` ska_status,a.update_time ska_update_time
+          FROM attr a,attr_value av WHERE a.attr_id = av.attr_id
+        ) ska ON ska.ska_av_id = svr.av_id
+
+        LEFT JOIN (
+            SELECT
+                mr.create_date m_create_date,mr.id m_id,mr.is_video m_is_video,mr.media_id m_media_id,
+                mr.ref_id m_ref_id,mr.type m_type,mr.update_date m_update_date,
+
+                mi.create_date,mi.id,mi.image_ext,mi.`name`,mi.size,mi.url mi_url,
+                mi.thumbnail_size,mi.thumbnail_url mi_thumbnail_url,mi.title,mi.update_date
+            FROM t_media_ref mr,t_media_info mi WHERE mi.id = mr.media_id AND mr.type = 1 ORDER BY mi.create_date DESC
+        ) gsm ON gsm.m_ref_id = gs.goods_id
+       <!--
+        LEFT JOIN (
+            SELECT
+                mr2.create_date m2_create_date,mr2.id m2_id,mr2.is_video m2_is_video,mr2.media_id m2_media_id,
+                mr2.ref_id m2_ref_id,mr2.type m2_type,mr2.update_date m2_update_date,
+
+                mi2.create_date mi2_create_date,mi2.id mi2_id,mi2.image_ext mi2_image_ext,mi2.`name` mi2_name,mi2.size mi2_size,mi2.url mi2_url,
+                mi2.thumbnail_size mi2_thumbnail_size,mi2.thumbnail_url mi2_thumbnail_url,mi2.title mi2_title,mi2.update_date mi2_update_date
+            FROM t_media_ref mr2,t_media_info mi2 WHERE mi2.id = mr2.media_id AND mr2.type = 2 ORDER BY mi2.create_date DESC
+        ) gsim ON gsim.m2_ref_id = gs.goods_id
+        -->
+         LEFT JOIN (
+                SELECT ordd.goods_id,count(ordd.total_num) total_num FROM t_order_detail ordd,t_order ord
+                WHERE ordd.order_id = ord.id
+                AND ord.`status` != 0
+                GROUP BY ordd.goods_id ) od ON od.goods_id = gs.goods_id
+        WHERE gs.goods_id = sku.goods_id
+        AND sku.sku_id = #{skuId}
+        <!--AND gs.goods_id = #{goodsId}-->
+        ORDER BY sku.price ASC
+    </select>
+
+    <!--查商品 根据skuid-->
+    <select id="findGoodsBySkuId" resultType="com.entities.GoodsDO">
+        SELECT gs.* FROM goods gs,sku
+        WHERE sku.goods_id = gs.goods_id
+        AND sku.sku_id = #{skuId}
+    </select>
+
+    <!--查看商品所有sku属性-->
+    <select id="skuOLRAttrs" resultMap="SkuRefAttrsResultMap">
+        SELECT
+            sku.sku_id sku_sku_Id, sku.price sku_price,sku.create_time sku_create_time,sku.goods_id sku_goods_id,
+            sku.sku_name sku_sku_name,sku.sku_num sku_sku_num,sku.`status` sku_status, sku.stock sku_stock,sku.update_time sku_update_time,
+            av.attr_id av_attr_id,av.attr_value av_attr_value,av.av_id av_av_id,av.create_time av_create_time,av.`status` av_status,av.update_time av_update_time,
+            a.attr_id a_attr_id,a.attr_name a_attr_name,a.cid a_cid,a.create_time a_create_time,a.group_id a_group_id,a.isMust a_isMust,a.isSku a_isSku,
+            a.`status` a_status,a.update_time a_update_time
+        FROM goods gs,sku,sku_value_ref sr,attr_value av, attr a
+        WHERE gs.goods_id = sku.goods_id
+        AND sku.sku_id = sr.sku_id
+        AND sr.av_id = av.av_id
+        AND av.attr_id = a.attr_id
+        AND gs.goods_id = #{id}
+        ORDER BY sku.price ASC
+    </select>
+
+    <!--查看商品所有sku属性-->
+    <select id="skuAttrs" resultMap="AttrVoResultMap2">
+        SELECT
+            sku.sku_id sku_sku_Id, sku.price sku_price,sku.create_time sku_create_time,sku.goods_id sku_goods_id,
+            sku.sku_name sku_sku_name,sku.sku_num sku_sku_num,sku.`status` sku_status, sku.stock sku_stock,sku.update_time sku_update_time,
+            av.attr_id av_attr_id,av.attr_value av_attr_value,av.av_id av_av_id,av.create_time av_create_time,av.`status` av_status,av.update_time av_update_time,
+            a.attr_id a_attr_id,a.attr_name a_attr_name,a.cid a_cid,a.create_time a_create_time,a.group_id a_group_id,a.isMust a_isMust,a.isSku a_isSku,
+            a.`status` a_status,a.update_time a_update_time
+        FROM goods gs,sku,sku_value_ref sr,attr_value av, attr a
+        WHERE gs.goods_id = sku.goods_id
+        AND sku.sku_id = sr.sku_id
+        AND sr.av_id = av.av_id
+        AND av.attr_id = a.attr_id
+        AND gs.goods_id = #{id}
+        ORDER BY sku.price ASC
+    </select>
+
+    <resultMap id="AttrVoResultMap2" type="com.pojo.VOAttr">
+        <id property="attrId" column="a_attr_id"></id>
+        <result property="attrName" column="a_attr_name"></result>
+        <result property="status" column="a_status"></result>
+        <result property="cid" column="a_cid"></result>
+        <result property="groupId" column="a_group_id"></result>
+        <result property="issku" column="a_isSku"></result>
+        <result property="ismust" column="a_isMust"></result>
+        <result property="createTime" column="a_create_time"></result>
+        <result property="updateTime" column="a_update_time"></result>
+        <collection property="voAttrVals" ofType="com.pojo.VOAttrVal">
+            <id property="avId" column="av_av_id"></id>
+            <result property="attrId" column="av_attr_id"></result>
+            <result property="attrValue" column="av_attr_value"></result>
+            <result property="status" column="av_status"></result>
+            <result property="createTime" column="av_create_time"></result>
+            <result property="updateTime" column="av_update_time"></result>
+            <association property="skuDO" javaType="com.entities.SkuDO">
+                <id property="skuId" column="sku_sku_Id"></id>
+                <result property="goodsId" column="sku_goods_id"></result>
+                <result property="skuNum" column="sku_sku_num"></result>
+                <result property="skuName" column="sku_sku_name"></result>
+                <result property="price" column="sku_price"></result>
+                <result property="stock" column="sku_stock"></result>
+                <result property="status" column="sku_status"></result>
+                <result property="createTime" column="sku_create_time"></result>
+                <result property="updateTime" column="sku_update_time"></result>
+            </association>
+        </collection>
+    </resultMap>
+
+
+    <!--根据id查类别-->
+    <select id="findCTByid" resultType="com.entities.GoodsCategoryDO">
+        SELECT * FROM goods_category c WHERE c.cid = #{cid}
+    </select>
+</mapper>

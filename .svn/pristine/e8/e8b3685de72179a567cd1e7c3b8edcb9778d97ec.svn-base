@@ -1,0 +1,51 @@
+{
+  "_args": [
+    [
+      "jeesh@0.0.6",
+      "E:\\顺恒利业务管理系统\\DogManager\\qlw"
+    ]
+  ],
+  "_from": "jeesh@0.0.6",
+  "_id": "jeesh@0.0.6",
+  "_inBundle": false,
+  "_integrity": "sha1-3faNXigxXQ9ogyc5Iy1pXlqC/Oo=",
+  "_location": "/jeesh",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "jeesh@0.0.6",
+    "name": "jeesh",
+    "escapedName": "jeesh",
+    "rawSpec": "0.0.6",
+    "saveSpec": null,
+    "fetchSpec": "0.0.6"
+  },
+  "_requiredBy": [
+    "/calender"
+  ],
+  "_resolved": "https://registry.npmjs.org/jeesh/-/jeesh-0.0.6.tgz",
+  "_spec": "0.0.6",
+  "_where": "E:\\顺恒利业务管理系统\\DogManager\\qlw",
+  "authors": [
+    "Dustin Diaz <@ded>",
+    "Jacob Thornton <@fat>"
+  ],
+  "dependencies": {
+    "bean": "*",
+    "bonzo": "*",
+    "domready": "*",
+    "qwery": "*"
+  },
+  "description": "The official starter pack for Ender.",
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "homepage": "https://github.com/ender-js/jeesh",
+  "keywords": [
+    "ender",
+    "jeesh"
+  ],
+  "name": "jeesh",
+  "version": "0.0.6"
+}
